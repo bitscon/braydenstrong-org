@@ -31,8 +31,8 @@ export const site = {
   // Merch — the Brayden Strong store exists on Printful but is brand new and
   // has no products yet, so the shop ships in a "coming soon" state. When the
   // store is stocked, drop the public storefront URL here and flip the flag.
-  merchComingSoon: true,
-  storeUrl: '#', // [Operator: public storefront URL for the Brayden Strong store]
+  merchComingSoon: false,
+  storeUrl: 'https://braydenstrong.printful.me/', // Printful hosted storefront
 };
 
 // Primary navigation — Contact is intentionally NOT listed (built but hidden at launch).
