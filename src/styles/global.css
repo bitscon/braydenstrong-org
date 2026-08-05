@@ -14,21 +14,23 @@
    ===================================================================== */
 
 @theme {
-  /* — BraydenStrong Orange (proposed) — */
-  --color-bs-orange:      #f15a24;  /* rallying accent, display, button fill */
-  --color-bs-orange-deep: #b5421a;  /* orange that needs AA contrast on light */
+  /* — BraydenStrong Orange (bright) — */
+  --color-bs-orange:      #ff7a1f;  /* identity: hot tangerine — buttons, accents */
+  --color-bs-orange-hi:   #ff9440;  /* gloss highlight / bright accent */
+  --color-bs-orange-deep: #b5421a;  /* small text on light surfaces (AA) */
   --color-bs-orange-soft: #fff1e9;  /* warm tint surface */
 
-  /* — BraydenStrong Blue (proposed) — */
-  --color-bs-blue:        #1552a0;  /* links, interactive text, authority */
-  --color-bs-blue-deep:   #0e3a73;  /* deep headers / hero grounds */
+  /* — BraydenStrong Blue (bright) — */
+  --color-bs-blue:        #1f6fd0;  /* identity: bright royal — links, buttons */
+  --color-bs-blue-hi:     #2472d2;  /* gloss highlight (top of blue gradient) */
+  --color-bs-blue-deep:   #1a5bb0;  /* headings */
   --color-bs-blue-soft:   #eef4fb;  /* calm tint surface (medical pages) */
 
   /* — Neutrals — */
   --color-ink:     #1c2430;  /* body text */
   --color-muted:   #566072;  /* secondary text */
   --color-surface: #ffffff;
-  --color-line:    #e4e8ef;
+  --color-line:    #d5dde8;  /* defined hairline — reads as a line, not a blur */
 
   /* — Type — */
   --font-display: 'Archivo', system-ui, -apple-system, sans-serif;
@@ -116,26 +118,27 @@ a { color: var(--color-bs-blue); }
 }
 .btn:hover { transform: translateY(-2px); }
 
-/* Orange fill + dark ink label → AA contrast, bold and rallying */
+/* Glossy orange + dark ink label. Every gradient stop clears AA on ink. */
 .btn-primary {
-  background: var(--color-bs-orange);
+  background: linear-gradient(180deg, #ff9440 0%, #ff7a1f 55%, #f26a12 100%);
   color: var(--color-ink);
-  box-shadow: 0 6px 18px rgba(241, 90, 36, 0.28);
+  border-color: #e2680f;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), 0 6px 18px rgba(255, 122, 31, 0.38);
 }
 .btn-primary:hover {
-  background: #ff6a34;
-  box-shadow: 0 10px 26px rgba(241, 90, 36, 0.38);
+  background: linear-gradient(180deg, #ffa254 0%, #ff8730 55%, #fb7016 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), 0 10px 26px rgba(255, 122, 31, 0.48);
 }
 
-/* Blue fill + white label → AA/AAA contrast */
+/* Glossy blue + white label. Stops capped at AA-safe values for white text. */
 .btn-blue {
-  background: var(--color-bs-blue);
+  background: linear-gradient(180deg, #2472d2 0%, #1f6fd0 55%, #175bb5 100%);
   color: #ffffff;
-  box-shadow: 0 6px 18px rgba(21, 82, 160, 0.25);
+  border-color: #1657a8;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 6px 18px rgba(31, 111, 208, 0.35);
 }
 .btn-blue:hover {
-  background: #1a5fb8;
-  box-shadow: 0 10px 26px rgba(21, 82, 160, 0.35);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.34), 0 10px 26px rgba(31, 111, 208, 0.48);
 }
 
 .btn-outline {
@@ -179,6 +182,20 @@ a { color: var(--color-bs-blue); }
 /* ── Hero gradient (token-driven, version-proof) ──────────── */
 .hero-grad {
   background: linear-gradient(to bottom, var(--color-bs-blue-soft), var(--color-surface));
+}
+
+/* ── Bright rallying band (glossy blue, white text ≥ AA) ──── */
+.band-bright {
+  background: linear-gradient(160deg, #2472d2 0%, #1f6fd0 55%, #175bb5 100%);
+}
+
+/* Crisp accent rule — a line that pops, not blends */
+.accent-bar {
+  display: block;
+  height: 4px;
+  width: 2.5rem;
+  border-radius: 2px;
+  background: var(--color-bs-orange);
 }
 
 /* ── Scroll reveal (motion-safe only) ─────────────────────── */
