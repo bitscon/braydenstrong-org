@@ -88,7 +88,12 @@ export const brayden = {
   dedication: PLACEHOLDER, // [Operator: dedication line / opening words]
   story: PLACEHOLDER, // [Operator: the full story — who Brayden was, 2020, the loss, in your words]
   keyDates: PLACEHOLDER, // [Operator: dates you want remembered, if any]
-  photos: [] as { src: string; alt: string }[], // [Operator: photos of Brayden — supply files + alt text]
+  // Operator-supplied photos. Optimized copies live in public/img/; originals archived in img/.
+  photos: [
+    { src: '/img/brayden-hero.jpg', alt: 'Brayden smiling in the stands at a game' },
+    { src: '/img/brayden-boat.jpg', alt: 'Brayden grinning on a boat out on the water' },
+    { src: '/img/brayden-car.jpg', alt: 'Close-up of Brayden smiling' },
+  ] as { src: string; alt: string }[], // [Operator: add or reorder photos here]
 };
 
 // ── About the Amoeba (CDC-sourced) ──────────────────────────
