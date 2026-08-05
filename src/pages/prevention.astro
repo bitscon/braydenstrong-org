@@ -1,0 +1,86 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import { prevention, cdc } from '../data/site';
+---
+
+<Layout title={prevention.heading} description={prevention.lede}>
+  <PageHeader
+    eyebrow="Awareness"
+    heading={prevention.heading}
+    subheading={prevention.subheading}
+    tint="blue"
+  />
+
+  <article class="wrap-narrow py-14">
+    <p class="text-lg text-ink/85">{prevention.lede}</p>
+
+    <!-- Swimming -->
+    <h2 class="mt-12 font-display text-2xl font-extrabold md:text-3xl">In warm fresh water</h2>
+    <ul class="mt-5 space-y-3">
+      {prevention.swimmingSteps.map((s) => (
+        <li class="card flex items-start gap-3 p-4">
+          <span class="mt-0.5 shrink-0 font-display font-black text-bs-orange" aria-hidden="true">✓</span>
+          <span class="text-ink/90">{s}</span>
+        </li>
+      ))}
+    </ul>
+
+    <!-- Sinus rinsing -->
+    <h2 class="mt-12 font-display text-2xl font-extrabold md:text-3xl">When rinsing your sinuses</h2>
+    <ul class="mt-5 space-y-3">
+      {prevention.sinusSteps.map((s) => (
+        <li class="card flex items-start gap-3 p-4">
+          <span class="mt-0.5 shrink-0 font-display font-black text-bs-orange" aria-hidden="true">✓</span>
+          <span class="text-ink/90">{s}</span>
+        </li>
+      ))}
+    </ul>
+
+    <!-- Warning signs -->
+    <h2 class="mt-14 font-display text-2xl font-extrabold md:text-3xl">Warning signs</h2>
+    <p class="mt-3 text-muted">{prevention.timeline}</p>
+
+    <div class="mt-6 grid gap-5 sm:grid-cols-2">
+      <div class="card p-5">
+        <h3 class="font-display text-lg font-bold text-bs-blue-deep">Early symptoms</h3>
+        <ul class="mt-3 space-y-1.5">
+          {prevention.warningSignsEarly.map((s) => (
+            <li class="text-ink/90">{s}</li>
+          ))}
+        </ul>
+      </div>
+      <div class="card p-5">
+        <h3 class="font-display text-lg font-bold text-bs-blue-deep">As it progresses</h3>
+        <ul class="mt-3 space-y-1.5">
+          {prevention.warningSignsLater.map((s) => (
+            <li class="text-ink/90">{s}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <!-- Emergency callout -->
+    <div class="mt-8 rounded-xl border-l-4 border-bs-orange bg-bs-orange-soft p-6">
+      <h3 class="font-display text-xl font-extrabold text-bs-orange-deep">Get help right away</h3>
+      <p class="mt-2 text-ink/90">{prevention.emergency}</p>
+    </div>
+
+    <!-- Source -->
+    <div class="card mt-10 p-5">
+      <p class="text-sm text-muted">
+        <strong class="text-ink">Source:</strong> {cdc.note} Information on this page reflects the CDC
+        <em>Naegleria fowleri</em> pages reviewed on {cdc.reviewedOn}.
+      </p>
+      <ul class="mt-3 space-y-1 text-sm">
+        {cdc.sources.map((s) => (
+          <li><a href={s.url} rel="noopener" target="_blank" class="text-bs-blue underline">{s.label}</a></li>
+        ))}
+      </ul>
+    </div>
+
+    <div class="mt-10">
+      <a href="/how-to-help" class="btn btn-primary">Help spread the word</a>
+    </div>
+  </article>
+</Layout>

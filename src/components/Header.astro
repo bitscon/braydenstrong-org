@@ -1,0 +1,84 @@
+---
+import { nav } from '../data/site';
+const path = Astro.url.pathname;
+const isActive = (href: string) =>
+  href === '/' ? path === '/' : path.startsWith(href);
+---
+
+<header class="sticky top-0 z-50 border-b border-line bg-surface/90 backdrop-blur-md">
+  <div class="wrap flex h-16 items-center justify-between gap-3 md:h-[4.25rem]">
+
+    <!-- Wordmark (logo asset can replace this later) -->
+    <a href="/" class="shrink-0 rounded-sm" aria-label="BraydenStrong home">
+      <span class="font-display text-2xl font-extrabold tracking-tight text-ink">
+        Brayden<span class="text-bs-orange">Strong</span>
+      </span>
+    </a>
+
+    <!-- Desktop nav -->
+    <nav class="hidden items-center gap-6 lg:flex" aria-label="Main navigation">
+      {nav.map(({ label, href }) => (
+        <a
+          href={href}
+          aria-current={isActive(href) ? 'page' : undefined}
+          class:list={[
+            'font-body text-[0.95rem] font-semibold transition-colors',
+            isActive(href) ? 'text-bs-blue' : 'text-ink/75 hover:text-bs-blue',
+          ]}
+        >
+          {label}
+        </a>
+      ))}
+    </nav>
+
+    <div class="flex items-center gap-2">
+      <a href="/how-to-help" class="btn btn-primary hidden text-[0.95rem] sm:inline-flex">
+        How to Help
+      </a>
+
+      <!-- Mobile toggle -->
+      <button
+        id="nav-toggle"
+        class="inline-flex items-center justify-center rounded-md border border-line p-2 text-ink lg:hidden"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="mobile-nav"
+      >
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile nav -->
+  <div id="mobile-nav" class="hidden border-t border-line bg-surface lg:hidden">
+    <nav class="wrap flex flex-col py-2" aria-label="Mobile navigation">
+      {nav.map(({ label, href }) => (
+        <a
+          href={href}
+          aria-current={isActive(href) ? 'page' : undefined}
+          class:list={[
+            'border-b border-line py-3 font-body font-semibold',
+            isActive(href) ? 'text-bs-blue' : 'text-ink/80',
+          ]}
+        >
+          {label}
+        </a>
+      ))}
+      <a href="/how-to-help" class="btn btn-primary mt-3 w-full">How to Help</a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const toggle = document.getElementById('nav-toggle');
+  const menu = document.getElementById('mobile-nav');
+  if (toggle && menu) {
+    toggle.addEventListener('click', () => {
+      const open = menu.classList.toggle('hidden');
+      toggle.setAttribute('aria-expanded', String(!open));
+      toggle.setAttribute('aria-label', open ? 'Open menu' : 'Close menu');
+    });
+  }
+</script>

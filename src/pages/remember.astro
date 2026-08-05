@@ -1,0 +1,41 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import Placeholder from '../components/Placeholder.astro';
+import { remember, PLACEHOLDER } from '../data/site';
+---
+
+<Layout title={remember.heading} description="A curated tribute — memories, photos, and words for Brayden.">
+  <PageHeader
+    eyebrow="Tribute"
+    heading={remember.heading}
+    subheading={remember.subheading}
+    tint="orange"
+  />
+
+  <div class="wrap-narrow py-14">
+    {remember.lede === PLACEHOLDER ? (
+      <Placeholder label="A short introduction to the tribute wall, in your words." />
+    ) : (
+      <p class="text-lg text-ink/85">{remember.lede}</p>
+    )}
+
+    <div class="mt-10">
+      {remember.tributes.length > 0 ? (
+        <div class="grid gap-6 sm:grid-cols-2">
+          {remember.tributes.map((t) => (
+            <figure class="card overflow-hidden">
+              {t.photo && <img src={t.photo} alt={t.alt ?? ''} class="aspect-[4/3] w-full object-cover" loading="lazy" />}
+              <blockquote class="p-5">
+                <p class="text-ink/90">{t.words}</p>
+                {t.name && <figcaption class="mt-3 font-display font-bold text-bs-blue-deep">— {t.name}</figcaption>}
+              </blockquote>
+            </figure>
+          ))}
+        </div>
+      ) : (
+        <Placeholder label="Memories, photos, and words you want to place here. This wall is curated by the family — nothing posts automatically, and there is no public guestbook." />
+      )}
+    </div>
+  </div>
+</Layout>

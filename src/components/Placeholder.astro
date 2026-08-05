@@ -1,0 +1,13 @@
+---
+// Marks a spot that needs the operator's own words/photos before launch.
+// Renders visibly so nothing placeholder-y ships unnoticed.
+export interface Props {
+  label: string;
+}
+const { label } = Astro.props;
+---
+
+<div class="placeholder">
+  <strong>Content coming from the family.</strong>
+  <span class="mt-1 block text-sm">{label}</span>
+</div>

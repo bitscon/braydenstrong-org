@@ -1,0 +1,82 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Placeholder from '../components/Placeholder.astro';
+import { home, PLACEHOLDER } from '../data/site';
+const { hero, storyHook, paths } = home;
+---
+
+<Layout>
+  <!-- Hero -->
+  <section class="hero-grad">
+    <div class="wrap py-20 text-center md:py-28">
+      <p class="eyebrow reveal">{hero.eyebrow}</p>
+      <h1 class="reveal mt-3 text-5xl font-black tracking-tight md:text-7xl">
+        Brayden<span class="text-bs-orange">Strong</span>
+      </h1>
+      <p class="reveal mx-auto mt-6 max-w-2xl text-lg text-ink/80 md:text-xl">
+        {hero.lede}
+      </p>
+      <div class="reveal mt-8 flex flex-wrap justify-center gap-3">
+        <a href={hero.primaryCta.href} class="btn btn-primary">{hero.primaryCta.label}</a>
+        <a href={hero.secondaryCta.href} class="btn btn-outline">{hero.secondaryCta.label}</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Story hook -->
+  <section class="wrap py-16 md:py-20">
+    <div class="grid items-center gap-10 md:grid-cols-2">
+      <div class="reveal">
+        <h2 class="text-3xl font-extrabold md:text-4xl">{storyHook.heading}</h2>
+        <div class="mt-4">
+          {storyHook.body === PLACEHOLDER ? (
+            <Placeholder label="A short, 2–3 sentence introduction to Brayden that invites people to read his full story." />
+          ) : (
+            <p class="text-lg text-muted">{storyHook.body}</p>
+          )}
+        </div>
+        <a href={storyHook.cta.href} class="btn btn-blue mt-6">{storyHook.cta.label}</a>
+      </div>
+      <div class="reveal">
+        <div class="card flex aspect-[4/3] items-center justify-center overflow-hidden">
+          <p class="px-6 text-center text-sm text-muted">
+            A photo of Brayden goes here.<br />(Supplied by the family.)
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Three paths -->
+  <section class="bg-bs-blue-soft">
+    <div class="wrap py-16 md:py-20">
+      <div class="grid gap-6 md:grid-cols-3">
+        {paths.map((p) => (
+          <div class="card reveal flex flex-col p-6">
+            <h3 class="font-display text-xl font-bold text-bs-blue-deep">{p.title}</h3>
+            <p class="mt-2 flex-1 text-muted">{p.body}</p>
+            <a href={p.cta.href} class="mt-4 font-display font-bold text-bs-blue hover:text-bs-blue-deep">
+              {p.cta.label} &rarr;
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- One thing that matters most -->
+  <section class="bg-bs-blue-deep text-white">
+    <div class="wrap py-16 text-center md:py-20">
+      <p class="reveal font-display text-sm font-bold uppercase tracking-[0.2em] text-bs-orange">
+        The one thing to remember
+      </p>
+      <h2 class="reveal mx-auto mt-4 max-w-3xl text-3xl font-extrabold text-white md:text-4xl">
+        Keep warm fresh water from going up your nose.
+      </h2>
+      <p class="reveal mx-auto mt-4 max-w-2xl text-white/80">
+        It is rare, but nearly always fatal — and it is preventable. A few simple habits make the difference.
+      </p>
+      <a href="/prevention" class="btn btn-primary reveal mt-8">See the prevention steps</a>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,48 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import Placeholder from '../components/Placeholder.astro';
+import { brayden, PLACEHOLDER } from '../data/site';
+---
+
+<Layout title={brayden.heading} description="Remembering Brayden — who he was, and why BraydenStrong keeps going.">
+  <PageHeader
+    eyebrow="In loving memory"
+    heading={brayden.heading}
+    subheading={brayden.subheading}
+    tint="orange"
+  />
+
+  <article class="wrap-narrow prose py-14">
+    {brayden.dedication === PLACEHOLDER ? (
+      <Placeholder label="An opening dedication or a few words you want visitors to read first." />
+    ) : (
+      <p class="text-xl text-ink/85">{brayden.dedication}</p>
+    )}
+
+    <div class="mt-8">
+      {brayden.story === PLACEHOLDER ? (
+        <Placeholder label="Brayden's full story, in your words — who he was, what happened in 2020, and the loss. This is yours to write; nothing here is generated." />
+      ) : (
+        <div set:html={brayden.story} />
+      )}
+    </div>
+
+    {brayden.keyDates !== PLACEHOLDER && (
+      <p class="mt-6 text-muted">{brayden.keyDates}</p>
+    )}
+
+    <!-- Photos -->
+    <div class="mt-12 not-prose">
+      {brayden.photos.length > 0 ? (
+        <div class="grid grid-cols-2 gap-4 sm:grid-cols-3">
+          {brayden.photos.map((p) => (
+            <img src={p.src} alt={p.alt} class="aspect-square w-full rounded-xl object-cover" loading="lazy" />
+          ))}
+        </div>
+      ) : (
+        <Placeholder label="Photos of Brayden — supply the image files and a short description of each. They will appear here as a gallery." />
+      )}
+    </div>
+  </article>
+</Layout>

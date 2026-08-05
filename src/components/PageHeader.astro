@@ -1,0 +1,19 @@
+---
+export interface Props {
+  eyebrow?: string;
+  heading: string;
+  subheading?: string;
+  tint?: 'plain' | 'blue' | 'orange';
+}
+const { eyebrow, heading, subheading, tint = 'plain' } = Astro.props;
+const band =
+  tint === 'blue' ? 'bg-bs-blue-soft' : tint === 'orange' ? 'bg-bs-orange-soft' : 'bg-surface';
+---
+
+<section class={`border-b border-line ${band}`}>
+  <div class="wrap py-12 md:py-16">
+    {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+    <h1 class="mt-2 text-4xl font-extrabold md:text-5xl">{heading}</h1>
+    {subheading && <p class="mt-3 max-w-2xl text-lg text-muted">{subheading}</p>}
+  </div>
+</section>

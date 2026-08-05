@@ -1,0 +1,37 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import Placeholder from '../components/Placeholder.astro';
+import { site, contact } from '../data/site';
+
+// This page ships HIDDEN: noindex, no nav link, excluded from the sitemap.
+// Reveal later on the operator's say-so.
+const emailReady = site.email && !site.email.startsWith('PLACEHOLDER');
+---
+
+<Layout title={contact.heading} description={contact.subheading} noindex={true}>
+  <PageHeader eyebrow="Reach out" heading={contact.heading} subheading={contact.subheading} tint="blue" />
+
+  <div class="wrap-narrow py-14">
+    <p class="text-lg text-ink/85">{contact.intro}</p>
+
+    <ul class="mt-6 space-y-2">
+      {contact.audiences.map((a) => (
+        <li class="flex items-start gap-3">
+          <span class="mt-0.5 shrink-0 font-display font-black text-bs-orange" aria-hidden="true">•</span>
+          <span class="text-ink/90">{a}</span>
+        </li>
+      ))}
+    </ul>
+
+    <div class="mt-8">
+      {emailReady ? (
+        <a href={`mailto:${site.email}`} class="btn btn-primary">Email us</a>
+      ) : (
+        <Placeholder label="Confirm the public contact email address before this page is revealed. Until then this button is a placeholder." />
+      )}
+    </div>
+
+    <p class="mt-8 text-sm text-muted">{contact.note}</p>
+  </div>
+</Layout>

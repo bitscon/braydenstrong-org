@@ -1,15 +1,29 @@
 # PROJECT STATUS
 
 ## Current State
-Scaffolded and under version control. Type confirmed static-web. Kanboard board live. Ready to plan site scope, stack, and content with the operator. Site not yet built.
+Site skeleton BUILT (Astro 6 + Tailwind 4). All 7 pages generate; `npm run build` is green. The two
+awareness pages (About the Amoeba, Prevention & Warning Signs) are drafted from the current CDC
+*Naegleria fowleri* pages and cite the source. Contact/Press ships hidden (noindex, not in nav, not in
+sitemap). Personal/memorial content and the shop link are marked placeholders. Palette hexes are proposed
+and WCAG-AA verified. Nothing deployed; repo still private.
 
 ## Completed
-- [ project scaffold created ]
-- [ registered in AGENT_OS.md Section 17 as static-web ]
-- [ git initialized + private GitHub remote bitscon/braydenstrong-org ]
+- [ project scaffold + registered static-web in AGENT_OS.md Section 17 ]
+- [ git + private GitHub remote bitscon/braydenstrong-org ]
 - [ Kanboard board created (barn, project id=7) ]
+- [ Phase 2: site plan authored + operator-approved (docs/SITE-PLAN.md) ]
+- [ Phase 3: Astro skeleton + 7 pages + CDC awareness drafts built and build-verified ]
 
 ## Next Steps
-- Plan site scope, pages, and awareness content with the operator
-- Decide the static-site approach (plain HTML/CSS vs a static generator)
-- Build, then deploy to braydenstrong.org via rsync
+- Operator: review the look and approve (or adjust) the proposed BraydenStrong Orange + Blue hexes.
+- Operator: supply memorial content (Brayden's story, photos, dates), the public store URL, and confirm
+  the contact email — all currently placeholders.
+- Re-verify awareness copy against the current CDC pages at publish time.
+- Push to the private remote (deferred), then deploy to braydenstrong.org via rsync when content is ready.
+
+## How verified (Phase 3)
+- `npm run build` green; 7 pages built.
+- Built-output checks: contact carries noindex and is the only page that does; sitemap and homepage nav
+  both exclude /contact; CDC facts present on the awareness pages.
+- WCAG AA contrast computed for every key color pair (all pass).
+- Not visually eyeballed in a browser this session (the connected Chrome could not reach the host's localhost).

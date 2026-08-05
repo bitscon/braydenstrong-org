@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+# Contact/Press ships hidden until launch.
+Disallow: /contact
+
+Sitemap: https://braydenstrong.org/sitemap.xml
