@@ -13,9 +13,9 @@ and WCAG-AA verified. Nothing deployed; repo still private.
 - [ Kanboard board created (barn, project id=7) ]
 - [ Phase 2: site plan authored + operator-approved (docs/SITE-PLAN.md) ]
 - [ Phase 3: Astro skeleton + 7 pages + CDC awareness drafts built and build-verified ]
+- [ Palette approved by operator (bright glossy tangerine + royal blue), WCAG AA verified ]
 
 ## Next Steps
-- Operator: review the look and approve (or adjust) the proposed BraydenStrong Orange + Blue hexes.
 - Operator: supply memorial content (Brayden's story, photos, dates), the public store URL, and confirm
   the contact email — all currently placeholders.
 - Re-verify awareness copy against the current CDC pages at publish time.
