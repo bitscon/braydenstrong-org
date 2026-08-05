@@ -4,8 +4,9 @@
 Site skeleton BUILT (Astro 6 + Tailwind 4). All 7 pages generate; `npm run build` is green. The two
 awareness pages (About the Amoeba, Prevention & Warning Signs) are drafted from the current CDC
 *Naegleria fowleri* pages and cite the source. Contact/Press ships hidden (noindex, not in nav, not in
-sitemap). Personal/memorial content and the shop link are marked placeholders. Palette hexes are proposed
-and WCAG-AA verified. Nothing deployed; repo still private.
+sitemap). Brayden's homepage photo is now wired in (optimized); the rest of the personal/memorial content
+and the shop link remain placeholders. Palette hexes are proposed and WCAG-AA verified. Nothing deployed;
+repo still private.
 
 ## Completed
 - [ project scaffold + registered static-web in AGENT_OS.md Section 17 ]
@@ -16,8 +17,8 @@ and WCAG-AA verified. Nothing deployed; repo still private.
 - [ Palette approved by operator (bright glossy tangerine + royal blue), WCAG AA verified ]
 
 ## Next Steps
-- Operator: supply memorial content (Brayden's story, photos, dates), the public store URL, and confirm
-  the contact email — all currently placeholders.
+- Operator: supply the rest of the memorial content (Brayden's story, dates, and any more photos), the
+  public store URL, and confirm the contact email — first homepage photo is in; the rest remain placeholders.
 - Re-verify awareness copy against the current CDC pages at publish time.
 - Push to the private remote (deferred), then deploy to braydenstrong.org via rsync when content is ready.
 
