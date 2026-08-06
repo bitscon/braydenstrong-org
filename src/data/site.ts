@@ -218,7 +218,7 @@ export const footer = {
   // HONESTY GUARDRAIL: no charity is formed. Never imply donations or tax
   // deductibility. This note states the status plainly.
   statusNote:
-    'BraydenStrong is a family-led awareness effort. It is not a registered non-profit, and purchases are ordinary sales, not tax-deductible donations.',
+    'BraydenStrong is a family-led awareness effort, not a registered non-profit, so purchases are ordinary sales and not tax-deductible. The family keeps none of the proceeds. What the shop makes goes back into spreading awareness or is donated to another amoeba-awareness non-profit.',
   copyright: `© ${'2020'}–present BraydenStrong. In loving memory of Brayden.`,
 };
 
