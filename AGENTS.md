@@ -1,3 +1,5 @@
+> **Read `ESTATE.md` first** - it says where this repository lives and which law applies here.
+
 # braydenstrong-org - Agent Instructions
 
 ## Project Identity
