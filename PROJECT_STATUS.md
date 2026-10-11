@@ -7,8 +7,8 @@ awareness pages (About the Amoeba, Prevention & Warning Signs) are drafted from 
 sitemap). Photos are in (optimized): Brayden's homepage hero + a three-photo gallery on his story page. The header
 logo is in (emblem + wordmark). The shop is LIVE — "How to Help" links out to the Printful storefront
 (braydenstrong.printful.me). Still placeholder: the written memorial content (story, dates) and the contact
-email. Palette hexes are proposed and WCAG-AA verified. The site is deployed to prod (braydenstrong.org)
-via Plesk git+build; repo stays private.
+email. Palette hexes are proposed and WCAG-AA verified. The site is NOT deployed yet — deploy method is
+rsync (per AGENTS.md/README); repo stays private until launch.
 
 ## Completed
 - [ project scaffold + registered static-web in AGENT_OS.md Section 17 ]
@@ -21,12 +21,19 @@ via Plesk git+build; repo stays private.
 ## Next Steps
 - Operator: supply the written memorial content (Brayden's story, dates) and any more photos, and confirm
   the contact email — photos, header logo, and the live shop are done; the written content remains placeholder.
-- Re-verify awareness copy against the current CDC pages at publish time.
-- Push to the private remote (deferred), then deploy to braydenstrong.org via rsync when content is ready.
+- Supply the social preview image (`og-default.png`, referenced in Layout.astro, still absent from public/).
+- Eyeball the built site in a real browser (not done in any session yet).
+- Deploy to braydenstrong.org via rsync when content is ready (not deployed yet).
 
-## How verified (Phase 3)
-- `npm run build` green; 7 pages built.
+## How verified (Phase 3, 2026-08-05; re-checked 2026-10-11)
+- `npm run build` green; 7 pages built (re-run 2026-10-11 on Node 24.19.0).
 - Built-output checks: contact carries noindex and is the only page that does; sitemap and homepage nav
   both exclude /contact; CDC facts present on the awareness pages.
 - WCAG AA contrast computed for every key color pair (all pass).
-- Not visually eyeballed in a browser this session (the connected Chrome could not reach the host's localhost).
+- CDC awareness copy re-verified against the live CDC pages on 2026-10-11 (direct fetch, not cached
+  knowledge): one drift found and fixed — "Loss of balance" removed from the later-symptoms list to match
+  CDC's current dedicated signs-and-symptoms page. Everything else (case counts, transmission facts,
+  timeline, prevention steps, sinus-rinse guidance) still matches. See
+  docs/changes/CHANGE-2026-10-11-013-cdc-reverify.md.
+- Not visually eyeballed in a browser in any session (no browser reachable from either agent environment
+  used so far).

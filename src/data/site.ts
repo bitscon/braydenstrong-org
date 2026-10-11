@@ -151,7 +151,6 @@ export const prevention = {
   warningSignsLater: [
     'Stiff neck',
     'Confusion',
-    'Loss of balance',
     'Inattention to people and surroundings',
     'Seizures',
     'Hallucinations',
@@ -224,7 +223,7 @@ export const footer = {
 
 // ── CDC sources (for the awareness pages' citation) ─────────
 export const cdc = {
-  reviewedOn: '2026-08-04', // date this site last checked the CDC pages
+  reviewedOn: '2026-10-11', // date this site last checked the CDC pages
   note:
     'Medical and prevention information on this site is drawn from the U.S. Centers for Disease Control and Prevention (CDC). Always follow current CDC guidance and consult a medical professional.',
   sources: [
