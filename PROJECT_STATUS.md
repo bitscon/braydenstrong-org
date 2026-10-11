@@ -22,7 +22,6 @@ rsync (per AGENTS.md/README); repo stays private until launch.
 - Operator: supply the written memorial content (Brayden's story, dates) and any more photos, and confirm
   the contact email — photos, header logo, the live shop, and the social preview image are done; the
   written content remains placeholder.
-- Eyeball the built site in a real browser (not done in any session yet).
 - Deploy to braydenstrong.org via rsync when content is ready (not deployed yet).
 
 ## How verified (Phase 3, 2026-08-05; re-checked 2026-10-11)
@@ -39,5 +38,9 @@ rsync (per AGENTS.md/README); repo stays private until launch.
 - Social preview image supplied 2026-10-11 (operator's instruction: use the hero photo) — cropped from
   the approved `brayden-hero.jpg` to a 1200x630 og:image. See
   docs/changes/CHANGE-2026-10-11-014-social-preview-image.md.
-- Not visually eyeballed in a browser in any session (no browser reachable from either agent environment
-  used so far).
+- Eyeballed in a real browser 2026-10-11: built the site, served it (`npm run preview`), drove headless
+  Chrome (`google-chrome --headless=new`) on the barn against it, and reviewed screenshots of the homepage,
+  the Prevention & Warning Signs page (confirms the symptom-list fix rendered correctly, CDC source links
+  present), and the hidden Contact page (reachable directly, `noindex` meta confirmed in the served HTML,
+  placeholder box rendering as intended). Visual result: palette, header logo, hero photo, and layout all
+  render as intended; no console/layout breakage observed.
